@@ -1,0 +1,30 @@
+----Input File----
+Number_of_threads: 0 // can be 0 for maximum number of cpu cores available
+GCode_file: inputfiles/fea_bowl_part.gcode   
+divisions_per_bead_width: 1 
+divisions_per_bead_height: 1 
+beadwidth: 8e-4 //meters
+beadheight: 4e-4 //meters
+model_type: 1 // 0 for isotropic and constant material property, 1 for isotropic and changing material property, 2 for orthotropic and changing material property
+specific_heat_capacity_file: inputfiles/sp_heat_cap_data.csv // temperature vs specific heat capacity, the temperature data should be equally spaced and in ascending order of temperature
+specific_heat_capacity_file_temp_step: 1 //spacing of temperatures in the specific heat capacity file
+conducitivity_file: inputfiles/conductivity.csv // conductivity vs temperature, the temperature data should be equally spaced and in ascending order of temperature
+conductivity_files_temp_step: 1 // spacing of temperature in the conductivity file
+density: 1200 // SI units
+convective_heat_transfer_film_coefficient: 12  //SI units (m kg s)
+bed_temperature: 298.15 // temperature of the bed
+conductivity_at_bed_surface_interface: 0.2 
+ambient_temperature: 298.15 //temperature of the surrounding
+extrusion_temperature: 483.15  
+emissivity: 0.9 // input for radiation 
+time_step: 0.01 // in seconds needs to be lesser than stable time limit for thermal simulation based on conductivity, density, specific heat capacity, and smallest dimension of the element (height) l^2*rho*c/K
+cooldown_period: 100 //seconds to run the model after the last element has been deposited
+nodes_file_output: outputfiles/nodefile.csv // x,y,z coordinate of nodes
+element_file_output: outputfiles/elementfile.csv // 8 noded hexahedral element consistent with Abaqus 
+activation_times_output: outputfiles/activation_times.csv // element number and activation time
+abaqus_input_mesh_file: outputfiles/abaqus_input.inp 
+element_temperature_file_output: outputfiles/elem_temps.csv 
+element_min_temp_diff_store: 1 //store temperature and time for the element if temperature changes from last timestep by this value
+nodal_temperature_file_output: outputfiles/node_temps.csv  // each row is for a number (node number = row number), time and temp 0.1, 210, 0.2,208,...
+turn_off_layers_at: 999999 //the temperature of a layer far away from the layer currently being deposited does not change. How far the layer should be from the current layer to be turned off?
+
