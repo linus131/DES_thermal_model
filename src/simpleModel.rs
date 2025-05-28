@@ -444,7 +444,7 @@ impl Model{
         // global_time = global_time + time;
         for i in 0..60 {
             global_time = global_time+1.0;
-            mdl.run_model(1.0, dt, conv_coeff, t_env, bw, &mut global_time, &pool, areas_and_dists, &mut temporary_templist,
+            mdl.run_model(time, dt, conv_coeff, t_env, bw, &mut global_time, &pool, areas_and_dists, &mut temporary_templist,
                           maxthreads,&cell_indices, &mut datastorer);
 
         }

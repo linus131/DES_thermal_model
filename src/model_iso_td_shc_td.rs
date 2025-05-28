@@ -581,10 +581,10 @@ impl Model{
 
                     next_cell_info.5, next_cell_info.6, &mut cell_indices, tempnodestorer);
 
-        // global_time = global_time + time;
-        let timedt = 2.0;
-        for i in 0..(cooldown_period / timedt) as usize {
-            global_time = global_time + timedt;
+         //global_time = global_time + time;
+        //let timedt = 2.0;
+        for i in 0..(cooldown_period / dt) as usize {
+            global_time = global_time + time;
             mdl.run_model(time, dt, conv_coeff, t_env, bw, &mut global_time, &pool, areas_and_dists, &mut temporary_templist,
 
                           conductivity_interp, maxthreads, &cell_indices);
