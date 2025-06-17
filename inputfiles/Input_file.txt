@@ -18,7 +18,7 @@ ambient_temperature: 298.15 //temperature of the surrounding
 extrusion_temperature: 483.15  
 emissivity: 0.9 // input for radiation
 time_step: 0.01 // in seconds needs to be lesser than stable time limit for thermal simulation based on conductivity, density, specific heat capacity, and smallest dimension of the element (height) l^2*rho*c/K
-cooldown_period: 10.0 //seconds to run the model after the last element has been deposited
+cooldown_period: 100.0 //seconds to run the model after the last element has been deposited
 nodes_file_output: outputfiles/nodefile.csv // x,y,z coordinate of nodes
 element_file_output: outputfiles/elementfile.csv // 8 noded hexahedral element consistent with Abaqus 
 activation_times_output: outputfiles/activation_times.csv // element number and activation time

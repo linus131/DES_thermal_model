@@ -956,7 +956,7 @@ impl ModelGenerator{
         }
         write!(abaqus_input_buffer,"*Element, type=DC3D8\n");
         for i in 0..elem_vec.len(){
-            write!(abaqus_input_buffer,"{},{},{},{},{},{},{},{},{}\n",i+1, elem_vec[i][0]+1,elem_vec[i][1]+1,elem_vec[i][3]+1,elem_vec[i][2]+1,elem_vec[i][4]+1,elem_vec[i][5]+1,elem_vec[i][7]+1,elem_vec[i][6]+1);
+            write!(abaqus_input_buffer,"{},{},{},{},{},{},{},{},{}\n",i+1, elem_vec[i][0]+1,elem_vec[i][1]+1,elem_vec[i][2]+1,elem_vec[i][3]+1,elem_vec[i][4]+1,elem_vec[i][5]+1,elem_vec[i][6]+1,elem_vec[i][7]+1);
         }
 
         write!(abaqus_input_buffer,
