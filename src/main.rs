@@ -8,7 +8,7 @@ mod model_updater;
 mod primitives;
 mod simpleModel;
 mod model_iso_td_shc_td;
-
+mod model_orthotropic_td_shc_variable_h;
 //mod model_with_structural;
 
 use num_cpus;
@@ -374,7 +374,7 @@ fn main() {
 
         //convert old nodes to new nodes
 
-        let mut mdl = model_orthotropic_td_shc::Model::new(
+        let mut mdl = model_orthotropic_td_shc_variable_h::Model::new(
             nodesnew.clone(),
             mu.activation_times.len(),
             sp_heat_cap_interpolation_table,
@@ -419,7 +419,7 @@ fn main() {
         println!("starting simulation timestep {}", time_step);
         let tic = Instant::now();
         // assuming inputfile has model type 1
-        model_orthotropic_td_shc::Model::update_model(
+        model_orthotropic_td_shc_variable_h::Model::update_model(
             &mut mu,
             &mut mdl,
             &mut bw,

@@ -24,6 +24,7 @@ id_temps = id_temps(id_temps~=0);
 plot(id_temps(1:2:end-1), id_temps(2:2:end)-273.15,'-x');
 xlabel('times (s)')
 ylabel('temperatures(^{\circ} C)')
+hold on
 
 % find closeset element center to C3 thermocouple
 c3coords = [717.32 -4.83 191.38]*1e-3;
@@ -31,7 +32,7 @@ id = kdtree.knnsearch(c3coords);
 id_temps = element_temperatures(id,:);
 % filter later zeros
 id_temps = id_temps(id_temps~=0);
-figure
+%figure
 plot(id_temps(1:2:end-1), id_temps(2:2:end)-273.15,'-x');
 xlabel('times(s)')
 ylabel('temperatures(^{\circ} C)')
@@ -42,18 +43,20 @@ id = kdtree.knnsearch(c4coords);
 id_temps = element_temperatures(id,:);
 % filter later zeros
 id_temps = id_temps(id_temps~=0);
-figure
+%figure
 plot(id_temps(1:2:end-1), id_temps(2:2:end)-273.15,'-x');
 xlabel('times(s)')
 ylabel('temperatures(^{\circ} C)')
 
 % find closeset element center to C5 thermocouple
-c4coords = [665.33 -5.78 388.71]*1e-3;
-id = kdtree.knnsearch(c4coords);
+c5coords = [665.33 -5.78 388.71]*1e-3;
+id = kdtree.knnsearch(c5coords);
 id_temps = element_temperatures(id,:);
 % filter later zeros
 id_temps = id_temps(id_temps~=0);
-figure
+%figure
 plot(id_temps(1:2:end-1), id_temps(2:2:end)-273.15,'-x');
 xlabel('times(s)')
 ylabel('temperatures(^{\circ} C)')
+
+legend('c2','c3', 'c4', 'c5')
